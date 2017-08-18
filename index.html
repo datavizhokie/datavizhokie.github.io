@@ -1,7 +1,153 @@
 <!DOCTYPE html>
 <html>
 <body>
-<h1>Matt's Github</h1>
-<p>I'm hosted with GitHub Pages.</p>
+<h1>Matt Wheeler's Github Stuff...pending cooler stuff</h1>
 </body>
 </html>
+
+<meta charset="utf-8">
+<style>
+
+body { font: 12px Arial;}
+
+path { 
+    stroke: steelblue;
+    stroke-width: 2;
+    fill: none;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: grey;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+}
+
+.line:hover {
+	stroke-width: 6px;
+}
+
+</style>
+<body>
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+
+<script>
+
+var margin = {top: 30, right: 40, bottom: 30, left: 50},
+    width = 600 - margin.left - margin.right,
+    height = 280 - margin.top - margin.bottom;
+
+var parseDate = d3.time.format("%H").parse;
+
+var x = d3.time.scale().range([0, width]);
+var y0 = d3.scale.linear().range([height, 0]);
+var y1 = d3.scale.linear().range([height, 0]);
+
+var xAxis = d3.svg.axis().scale(x)
+    .orient("bottom").ticks(10);
+
+var yAxisLeft = d3.svg.axis().scale(y0)
+    .orient("left").ticks(5);
+
+var yAxisRight = d3.svg.axis().scale(y1)
+    .orient("right").ticks(5); 
+
+var valueline = d3.svg.line()
+    .x(function(d) { return x(d.date); })
+    .y(function(d) { return y0(d.Caffeine); })
+    .interpolate("basis");
+    
+var valueline2 = d3.svg.line()
+    .x(function(d) { return x(d.date); })
+    .y(function(d) { return y1(d.Productivity); })
+    .interpolate("basis");
+    
+  
+var svg = d3.select("body")
+    .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+        .attr("transform", 
+              "translate(" + margin.left + "," + margin.top + ")");
+
+// Get the data
+d3.csv("caffeine_trend2.csv", function(error, data) {
+    data.forEach(function(d) {
+        d.date = parseDate(d.date);
+        d.Caffeine = +d.Caffeine;
+        d.Productivity = +d.Productivity;
+    });
+
+    // Scale the range of the data
+    x.domain(d3.extent(data, function(d) { return d.date; }));
+    y0.domain([0, d3.max(data, function(d) {
+		return Math.max(d.Caffeine); })]); 
+    y1.domain([0, d3.max(data, function(d) { 
+		return Math.max(d.Productivity); })]);
+
+    svg.append("path")        // Add the valueline path.
+        .style("stroke", "blue")
+        .attr("d", valueline(data));
+
+    svg.append("path")        // Add the valueline2 path.
+        .style("stroke", "black")
+        .attr("d", valueline2(data));
+
+    svg.append("g")            // Add the X Axis
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + height + ")")
+        .call(xAxis);
+
+    svg.append("g")
+        .attr("class", "y axis")
+        .style("fill", "blue")
+        .call(yAxisLeft)
+        .append("text")
+		.attr("transform", "rotate(-90)")
+		.attr("y", -50)
+		.attr("x", -125)
+		.attr("dy", "0.9em")
+		//.attr("fill", "#000")
+		.text("mg in Blood");
+        
+
+    svg.append("g")				
+        .attr("class", "y axis")	
+        .attr("transform", "translate(" + width + " ,0)")	
+        .style("fill", "black")		
+        .call(yAxisRight)
+        .append("text")
+		.attr("transform", "rotate(-90)")
+		.attr("y", 25)
+		.attr("x", -125)
+		.attr("dy", "0.9em")
+		//.attr("fill", "#000")
+		.text("Productivity");
+        
+    	//define chart title
+	let title = svg.append("g")
+		.attr("class", "title");
+	title.append("text")
+		.attr("x", (width/2))
+		.attr("y", 2)
+		.attr("text-anchor", "middle")
+		.style("font", "16px sans-serif")
+		.text("Caffeine in my Blood vs. Productivity");
+        
+    	//define the data source
+	let source = svg.append("g")
+		.attr("class", "source");
+        source.append("text")
+		.attr("x", 5)
+		.attr("y", 250)
+		.attr("text-anchor", "left")
+		.style("font", "12px monospace")
+		.text("Source: Nothing close to empirical")
+
+});
+
+</script>
+</body>
