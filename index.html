@@ -95,7 +95,7 @@ path {
 
 .axis path,
 .axis line {
-    fill: white;
+    fill: none;
     stroke: grey;
     stroke-width: 1;
     shape-rendering: crispEdges;
@@ -149,6 +149,11 @@ var svg = d3.select("body")
     .append("g")
         .attr("transform", 
               "translate(" + margin.left + "," + margin.top + ")");
+              
+svg.append("rect")
+    .attr("width", "100%")
+    .attr("height", "100%")
+    .attr("fill", "white");
 
 // Get the data
 d3.csv("caffeine_trend2.csv", function(error, data) {
