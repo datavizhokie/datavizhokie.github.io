@@ -28,18 +28,15 @@
     
     <!-- Styles -->	
     <style style="text/css">
-    <!--body {
-        background-image: url("word bubble.png");
-        background-size: cover;
-        background-position: center center;
-        background-repeat: no-repeat;
-        }
-        -->
+
     h2 {
         background-color: lightgrey;
         }
-    p {
+    h3 {
         background-color: lightgrey;
+        }
+    p {
+        background-color: white;
         }
         
 
@@ -52,6 +49,7 @@
     
     
     <body data-spy="scroll" data-target="#main-navbar">
+    <img class="profile-pic" src="head 2015.jpg" alt="HTML5 Icon" style="width:128px;height:128px;" align="left">
 		
         <!--Home page style-->
         <header id="home" class="sections">
@@ -62,7 +60,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <div class="unique-apps">
                                 <h2>Matt Wheeler<br>Visualization | Web Analytics | Data Science</h2>
-                                <p>
+                                <h3>
                                     Passionate about drawing insights from data
                                     <br>
                                     <a href="https://www.linkedin.com/in/matthew-wheeler/">LinkedIn</a>
@@ -70,7 +68,11 @@
                                     &nbsp;
                                     &nbsp;
                                     <a href="https://public.tableau.com/profile/matt.wheeler#!/">Tableau Public</a>             
-                                </p>
+                                </h3>
+                                <p>
+                                    Interested in behavorial economics, evolutionary biology, genetics and anything else that can be visualized.  Below
+                                    is a D3.js force-directed example from Les Miserables characters (source Mike Bostock).
+                                </p>    
 
                             </div>
                         </div>
@@ -206,7 +208,23 @@ function dragended(d) {
 
 </script>
 
+   <footer>
+
+      <div class="row">
+
+         <div class="twelve columns">
+
+            <ul class="copyright">
+               <li>&copy; Copyright 2017 msw</li>
+            </ul>
+
+         </div>
+
+         <div id="go-top"><a class="smoothscroll" title="Back to Top" href="#home"><i class="icon-up-open"></i></a></div>
+
+      </div>
+
+   </footer> <!-- Footer End-->
 
 </body>
-<img src="head 2015.jpg" alt="HTML5 Icon" style="width:128px;height:128px;" align="left">
 </html>
