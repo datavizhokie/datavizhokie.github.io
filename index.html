@@ -41,15 +41,17 @@
     p {
         background-color: lightgrey;
         }
+        
+
+    img { 
+        width:100%; 
+        }   
     </style>
     </head>
     <body>
     
     
     <body data-spy="scroll" data-target="#main-navbar">
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
 		
         <!--Home page style-->
         <header id="home" class="sections">
@@ -57,9 +59,6 @@
 
                 <div class="row">
                     <div class="homepage-style">
-
-                        <!-- <div class="top-arrow hidden-xs text-center"><img src="assets/images/top-arrow.png" alt="" /></div> -->
-
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <div class="unique-apps">
                                 <h2>Matt Wheeler<br>Visualization | Web Analytics | Data Science</h2>
@@ -72,20 +71,19 @@
                                     &nbsp;
                                     <a href="https://public.tableau.com/profile/matt.wheeler#!/">Tableau Public</a>             
                                 </p>
-                                </p>
-                                    D3.js - Mike Bostock (Les Miserables Characters)
-                                </p>
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>    
+    
+  
     </body>
 
 
 
 </body>
-
 <!-- Force Directed Chart (Les Miserables Characters)-->
 
 <meta charset="utf-8">
@@ -106,9 +104,17 @@
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script>
 
+
+
 var svg = d3.select("svg"),
     width = +svg.attr("width"),
     height = +svg.attr("height"); 
+
+  <!-- svg.append("text")
+    <!-- .attr("x", width / 2 )
+    <!-- .attr("y", 0)
+    <!-- .style("text-anchor", "middle")
+    <!-- .text("D3.js - Mike Bostock (Les Miserables Characters)"); -->
     
 var color = d3.scaleOrdinal(d3.schemeCategory20);
 
@@ -202,5 +208,5 @@ function dragended(d) {
 
 
 </body>
-
+<img src="head 2015.jpg" alt="HTML5 Icon" style="width:128px;height:128px;" align="left">
 </html>
