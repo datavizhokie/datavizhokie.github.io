@@ -163,7 +163,7 @@ d3.json("colorado_ski_resorts.json", function(error, graph) {
           .on("end", dragended));
  
   node.append("circle")
-      .attr("r", function(d) { return d.value * 3; });
+      .attr("r", function(d) { return d.value * 6; });
       
       
   var text = svg.append("g").attr("class", "labels").selectAll("g")
@@ -171,10 +171,10 @@ d3.json("colorado_ski_resorts.json", function(error, graph) {
     .enter().append("g");
 
   text.append("text")
-    .attr("x", 14)
+    .attr("x", 16)
     .attr("y", ".31em")
     .style("font-family", "sans-serif")
-    .style("font-size", "0.6em")
+    .style("font-size", "0.7em")
     .text(function(d) { return d.id; });
 
   simulation
