@@ -15,11 +15,12 @@
     {"source": 9, "target": 12}
     ],
   "nodes": [
-    {"size": 73, "snowfall": 350, "score": 0.1, "id": "Araphoe Basin", "type": "circle"},
+    {"size": 77, "snowfall": 370, "score": 0.1, "id": "Vail", "type": "circle"},
+    {"size": 73, "snowfall": 350, "score": 0.1, "id": "Arapahoe Basin", "type": "circle"},
     {"size": 75, "snowfall": 360, "score": 0.1, "id": "Breckenridge", "type": "circle"},
     {"size": 49, "snowfall": 235, "score": 0.1, "id": "Keystone", "type": "circle"},
     {"size": 69, "snowfall": 330, "score": 0.1, "id": "Beaver Creek", "type": "circle"},
-    {"size": 77, "snowfall": 370, "score": 0.1, "id": "Vail", "type": "circle"},
+    
     
     {"size": 76, "snowfall":365, "score": 0.3, "id": "Winter Park/Mary Jane", "type": "square"},
     {"size": 64, "snowfall":305, "score": 0.3, "id": "Copper", "type": "square"},
