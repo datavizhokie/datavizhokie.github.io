@@ -51,7 +51,7 @@
     
     
     <body data-spy="scroll" data-target="#main-navbar">
-    <img class="profile-pic" src="head 2015.jpg" alt="HTML5 Icon" style="width:128px;height:128px;" align="left" hspace="40">
+    <img class="profile-pic" src="ski_abay_selfie_crop.png" alt="HTML5 Icon" style="width:128px;height:128px;" align="left" hspace="40">
 		
         <!--Home page style-->
         <header id="home" class="sections">
@@ -213,11 +213,11 @@ d3.json("co_ski_sort_clusters.json", function(error, graph) {
         .attr("dy", ".35em")
         .style("font-size", nominal_text_size + "px")
     if (text_center)
-        text.text(function(d) { return d.id; })
+        text.text(function(d) { return d.id + ": " + d.snowfall + " in"; })
             .style("text-anchor", "middle");
     else
         text.attr("dx", function(d) {return (size(d.size)||nominal_base_node_size);})
-            .text(function(d) { return '\u2002'+d.id; });
+            .text(function(d) { return '\u2002'+d.id + ": " + d.snowfall + " in"; });
     node.on("mouseover", function(d) {
         set_highlight(d);
     })
