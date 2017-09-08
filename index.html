@@ -84,10 +84,6 @@
                 </div>
             </div>    
     
-  
-
-
-
 
 <meta charset="utf-8">
 <style>
@@ -97,11 +93,16 @@ body {
 }
 text {
   font-family: sans-serif;
-  pointer-events: none;
+  pointer-events: auto;
 }
 </style>
-
 <body>
+
+<div class="row">
+  <div class="col-md-6" id="area1"></div>
+  <div class="col-md-6" id="area2"></div>
+</div>
+
 <!-- <script src="http://d3js.org/d3.v3.min.js"></script>  -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
 <script>
@@ -136,13 +137,13 @@ var max_stroke = 4.5;
 var max_base_node_size = 36;
 var min_zoom = 0.1;
 var max_zoom = 7;
-var svg = d3.select("body").append("svg");
+var svg = d3.select("#area1").append("svg");
 
 svg.append("text")
-    .attr("x", w / 2 )
-    .attr("y", 20)
+    .attr("x", w / 4 )
+    .attr("y", 15)
     .style("text-anchor", "middle")
-    .text("Colorado Ski Resorts - Node Size indicates Average Season Snowfall");
+    .text("D3.js Colorado Ski Resorts");
  
 var zoom = d3.behavior.zoom().scaleExtent([min_zoom,max_zoom])
 var g = svg.append("g");
@@ -398,5 +399,7 @@ function isNumber(n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
 }	
 </script>
+
+</body>
 
 </html>
