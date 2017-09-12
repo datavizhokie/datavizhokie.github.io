@@ -226,11 +226,11 @@ d3.json("co_ski_sort_clusters.json", function(error, graph) {
         .attr("dy", ".35em")
         .style("font-size", nominal_text_size + "px")
     if (text_center)
-        text.text(function(d) { return d.Pass + " - " + d.id + ": " + d.snowfall + " in"; })
+        text.text(function(d) { return d.id + ": " + d.snowfall + " in"; })
             .style("text-anchor", "middle");
     else
         text.attr("dx", function(d) {return (size(d.size)||nominal_base_node_size);})
-            .text(function(d) { return '\u2002'+ d.Pass + " - " + d.id + ": " + d.snowfall + " in"; });
+            .text(function(d) { return '\u2002'+ d.id + ": " + d.snowfall + " in"; });
     node.on("mouseover", function(d) {
         set_highlight(d);
     })
