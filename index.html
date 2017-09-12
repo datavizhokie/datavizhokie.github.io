@@ -119,7 +119,7 @@ text {
 <!-- <script src="http://d3js.org/d3.v3.min.js"></script>  -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
 <script>
-var w = window.innerWidth;
+var w = window.innerWidth/3;
 var h = window.innerHeight;
 var keyc = true, keys = true, keyt = true, keyr = true, keyx = true, keyd = true, keyl = true, keym = true, keyh = true, key1 = true, key2 = true, key3 = true, key0 = true
 var focus_node = null, highlight_node = null;
@@ -152,7 +152,7 @@ var min_zoom = 0.1;
 var max_zoom = 7;
 var svg = d3.select("#area1").append("svg");
 svg.append("text")
-    .attr("x", w / 2 )
+    .attr("x", w)
     .attr("y", 15)
     .style("text-anchor", "middle")
     .text("D3.js Colorado Ski Resorts");
