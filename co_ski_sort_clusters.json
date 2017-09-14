@@ -22,10 +22,10 @@
     {"size": 69, "snowfall": 330, "score": 0.1, "color": "darkblue", "id": "Beaver Creek", "type": "circle", "Pass": "Epic"},
     
     
-    {"size": 76, "snowfall":365, "score": 0.3, "color": "lightblue", "id": "Winter Park/Mary Jane", "type": "square", "Pass": "Rcky Mtn"},
-    {"size": 64, "snowfall":305, "score": 0.3, "color": "lightblue", "id": "Copper", "type": "square", "Pass": "Rcky Mtn"},
-    {"size": 63, "snowfall":300, "score": 0.3, "color": "lightblue", "id": "Eldora", "type": "square", "Pass": "Rcky Mtn"},
-    {"size": 63, "snowfall":300, "score": 0.3, "color": "lightblue", "id": "Crested Butte", "type": "square", "Pass": "Rcky Mtn"},
+    {"size": 76, "snowfall":365, "score": 0.3, "color": "lightblue", "id": "Winter Park/Mary Jane", "type": "square", "Pass": "Rocky Mountain"},
+    {"size": 64, "snowfall":305, "score": 0.3, "color": "lightblue", "id": "Copper", "type": "square", "Pass": "Rocky Mountain"},
+    {"size": 63, "snowfall":300, "score": 0.3, "color": "lightblue", "id": "Eldora", "type": "square", "Pass": "Rocky Mountain"},
+    {"size": 63, "snowfall":300, "score": 0.3, "color": "lightblue", "id": "Crested Butte", "type": "square", "Pass": "Rocky Mountain"},
     
     {"size": 63, "snowfall": 300, "score": 0.6, "color": "cyan", "id": "Aspen", "type": "diamond", "Pass": "Aspen/Snowmass"},
     {"size": 63, "snowfall": 300, "score": 0.6, "color": "cyan", "id": "Aspen Highlands", "type": "diamond", "Pass": "Aspen/Snowmass"},
