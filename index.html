@@ -134,7 +134,7 @@
                                     <br> &nbsp; <a target="_blank" href="https://www.ventusky.com"> Ventusky Meteorlogical Data Visualization </a>    
                                     <br>
                                     <br>
-                                    Below are a few D3.js projects.
+                                    Below are a few of my D3.js projects.
                                   
                                 </p>    
 
@@ -185,7 +185,7 @@ var format = d3.time.format("%m/%d/%y");
 //var parseDate = d3.time.format("%m/%d/%y").parse;
 var formatDate = d3.time.format("%b %d, '%y");
 
-var margin = {top: 20, right: 40, bottom: 30, left: 30};
+var margin = {top: 20, right: 40, bottom: 70, left: 30};
 var width = document.body.clientWidth - margin.left - margin.right;
 var height = 400 - margin.top - margin.bottom;
 
@@ -195,8 +195,9 @@ var tooltip = d3.select("body")
     .style("position", "absolute")
     .style("z-index", "10")
     .style("visibility", "hidden")
-    .style("top", "350px")
-    .style("left", "0px");
+    .style("top", "450px")
+    .style("left", "0px")
+    .style("opacity", .3);
 
 var x = d3.time.scale()
     .range([0, width]);
@@ -241,10 +242,11 @@ var svg2 = d3.select("#area2").append("svg")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
     
 svg2.append("text")
-    .attr("x", width*3/4)
+    .attr("x", width/2)
     .attr("y", -7)
     .style("text-anchor", "middle")
-    .text("1yr Stream of Tech Stocks (NFLX, FB, GOOG, AMZN, APPL)");
+    .style("fill","darkblue")
+    .text("1yr Streamgraph of Tech Stocks (NFLX, FB, GOOG, AMZN, APPL)");
 
 var graph = d3.csv(csvpath, function(data) {
   data.forEach(function(d) {
@@ -342,6 +344,8 @@ var graph = d3.csv(csvpath, function(data) {
 });
 }
 </script>
+
+<hr>
  
 <!-- Force-directed chart -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
@@ -364,7 +368,7 @@ var size = d3.scale.pow().exponent(1)
     .range([4,24]);
 var force = d3.layout.force()
     .linkDistance(80)
-    .charge(-300)
+    .charge(-200)
     .size([w,h]);
 var default_node_color = "#ccc";
 //var default_node_color = "rgb(3,190,100)";
@@ -382,7 +386,8 @@ svg1.append("text")
     .attr("x", w*3)
     .attr("y", 15)
     .style("text-anchor", "middle")
-    .text("D3.js Colorado Ski Resorts");
+    .style("fill","darkblue")
+    .text("Force-directed Colorado Ski Resorts by Season Pass");
  
 var zoom = d3.behavior.zoom().scaleExtent([min_zoom,max_zoom])
 var g = svg1.append("g");
