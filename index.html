@@ -476,7 +476,7 @@ d3.json("co_ski_sort_clusters.json", function(error, graph) {
         .data(color.domain())
         .enter().append("g")
         .attr("class", "legend")
-        .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });      
+        .attr("transform", function(d, i) { return "translate(0," + i * 30 + ")"; });          
           
     legend.selectAll('rect')
       .data(graph)
