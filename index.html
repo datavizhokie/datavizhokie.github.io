@@ -195,9 +195,9 @@ var tooltip = d3.select("body")
     .style("position", "absolute")
     .style("z-index", "10")
     .style("visibility", "hidden")
-    .style("top", "450px")
+    .style("top", "340px")
     .style("left", "150px")
-    .style("opacity", .3);
+    .style("opacity", 1);
 
 var x = d3.time.scale()
     .range([0, width]);
@@ -307,7 +307,7 @@ var graph = d3.csv(csvpath, function(data) {
       .classed("hover", true)
       .attr("stroke", strokecolor)
       .attr("stroke-width", "0.5px"), 
-      tooltip.html( "<p>" + d.key + "<br>" + pro + "<br>" + dt + "</p>" ).style("visibility", "visible");
+      tooltip.html( "<p>" + d.key + "<br>" + pro + "<br>" + formatDate(dt) + "</p>" ).style("visibility", "visible");
       
     })
     .on("mouseout", function(d, i) {
@@ -317,7 +317,7 @@ var graph = d3.csv(csvpath, function(data) {
       .attr("opacity", "1");
       d3.select(this)
       .classed("hover", false)
-      .attr("stroke-width", "0px"), tooltip.html( "<p>" + d.key + "<br>" + pro + "<br>" + dt + "</p>" ).style("visibility", "hidden");
+      .attr("stroke-width", "0px"), tooltip.html( "<p>" + d.key + "<br>" + pro + "<br>" + formatDate(dt) + "</p>" ).style("visibility", "hidden");
   })
     
   var vertical = d3.select(".chart")
