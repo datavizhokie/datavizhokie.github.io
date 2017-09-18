@@ -184,6 +184,8 @@ var format = d3.time.format("%m/%d/%y");
 //define your year format here, first for the x scale, then if the date is displayed in tooltips
 //var parseDate = d3.time.format("%m/%d/%y").parse;
 var formatDate = d3.time.format("%b %d, '%y");
+var formatDecimalComma = d3.format(",.2f");
+var formatMoney = function(d) { return "$" + formatDecimalComma(d); };
 
 var margin = {top: 20, right: 150, bottom: 70, left: 150};
 var width = document.body.clientWidth - margin.left - margin.right;
@@ -307,7 +309,7 @@ var graph = d3.csv(csvpath, function(data) {
       .classed("hover", true)
       .attr("stroke", strokecolor)
       .attr("stroke-width", "0.5px"), 
-      tooltip.html( "<p>" + d.key + "<br>" + pro + "<br>" + formatDate(dt) + "</p>" ).style("visibility", "visible");
+      tooltip.html( "<p>" + d.key + "<br>" + formatMoney(pro) + "<br>" + formatDate(dt) + "</p>" ).style("visibility", "visible");
       
     })
     .on("mouseout", function(d, i) {
@@ -317,7 +319,7 @@ var graph = d3.csv(csvpath, function(data) {
       .attr("opacity", "1");
       d3.select(this)
       .classed("hover", false)
-      .attr("stroke-width", "0px"), tooltip.html( "<p>" + d.key + "<br>" + pro + "<br>" + formatDate(dt) + "</p>" ).style("visibility", "hidden");
+      .attr("stroke-width", "0px"), tooltip.html( "<p>" + d.key + "<br>" + formatMoney(pro) + "<br>" + formatDate(dt) + "</p>" ).style("visibility", "hidden");
   })
     
   var vertical = d3.select(".chart")
