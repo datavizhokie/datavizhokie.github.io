@@ -212,7 +212,7 @@ var formatDate = d3.time.format("%b %d, '%y");
 var formatDecimalComma = d3.format(",.2f");
 var formatMoney = function(d) { return "$" + formatDecimalComma(d); };
 
-var margin = {top: 20, right: 150, bottom: 70, left: 150};
+var margin = {top: 20, right: 150, bottom: 70, left: 50};
 var width = document.body.clientWidth - margin.left - margin.right;
 var height = 400 - margin.top - margin.bottom;
 
@@ -223,7 +223,7 @@ var tooltip = d3.select("body")
     .style("z-index", "10")
     .style("visibility", "hidden")
     .style("top", "430px")
-    .style("left", "120px")
+    .style("left", "60px")
     .style("opacity", 1);
 
 var x = d3.time.scale()
@@ -379,7 +379,8 @@ var graph = d3.csv(csvpath, function(data) {
 <script>
 
 
-var w = window.innerWidth/6;
+//var w = window.innerWidth/8;
+var w = document.body.clientWidth - 70;
 var h = window.innerHeight/4;
 var keyc = true, keys = true, keyt = true, keyr = true, keyx = true, keyd = true, keyl = true, keym = true, keyh = true, key1 = true, key2 = true, key3 = true, key0 = true
 var focus_node = null, highlight_node = null;
@@ -410,7 +411,7 @@ var min_zoom = 0.1;
 var max_zoom = 7;
 var svg1 = d3.select("#area1").append("svg");
 svg1.append("text")
-    .attr("x", w*3)
+    .attr("x", w/2)
     .attr("y", 15)
     .style("text-anchor", "middle")
     .style("fill","darkblue")
