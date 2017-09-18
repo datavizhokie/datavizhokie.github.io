@@ -408,7 +408,7 @@ var min_zoom = 0.1;
 var max_zoom = 7;
 var svg1 = d3.select("#area1").append("svg");
 svg1.append("text")
-    .attr("x", w*2)
+    .attr("x", w*2.5)
     .attr("y", 15)
     .style("text-anchor", "middle")
     .style("fill","darkblue")
@@ -506,13 +506,14 @@ d3.json("co_ski_sort_clusters.json", function(error, graph) {
 
     legend.append("rect")
         .attr("x", w - 18)
+        .attr("y", h - 18)
         .attr("width", 18)
         .attr("height", 18)
         .style("fill", color);
 
     legend.append("text")
         .attr("x", w - 24)
-        .attr("y", 9)
+        .attr("y", h - 10)
         .attr("dy", ".35em")
         .style("text-anchor", "end")
         .text(function(d) { return d; });
