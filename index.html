@@ -156,9 +156,7 @@
             </div>
             <div class="col-md-6" id="area1"></div>
         <div class="row"> 
-            <!--<div class="homepage-style">-->
             <div class="col-sm-12">
-             <!--<div class="unique-apps">-->
                 <p>
                         Looking at major technological stocks across one year shows Amazon and Google dominating.  Amazon shows the most growth, likely owing to the
                         introduction of Amazon Go (grocery shopping) and its acquisition of Whole Foods.
@@ -370,16 +368,14 @@ var graph = d3.csv(csvpath, function(data) {
 }
 </script>
 
-<hr>
  
 <!-- Force-directed chart -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+
 <script>
-
-
 var w = window.innerWidth/6;
 //var w = document.body.clientWidth - 500;
-var h = window.innerHeight/10;
+var h = window.innerHeight/20;
 var keyc = true, keys = true, keyt = true, keyr = true, keyx = true, keyd = true, keyl = true, keym = true, keyh = true, key1 = true, key2 = true, key3 = true, key0 = true
 var focus_node = null, highlight_node = null;
 var text_center = false;
@@ -394,7 +390,7 @@ var size = d3.scale.pow().exponent(1)
     .range([4,24]);
 var force = d3.layout.force()
     .linkDistance(80)
-    .charge(-200)
+    .charge(-175)
     .size([w,h]);
 var default_node_color = "#ccc";
 //var default_node_color = "rgb(3,190,100)";
