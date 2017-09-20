@@ -88,6 +88,37 @@
       font: 12px sans-serif;
       background: #ddd;
     }
+    
+    #footer {
+      font: 12px sans_serif;
+      fill: lightgrey;
+      width: 100%;
+      height: auto;
+      min-height: 10px;
+      margin: 0px;
+      padding: 0px;
+      border: 0px solid #bbb;
+    }
+    
+    .link line {
+      stroke: #696969;
+    }
+
+    .link line.separator {
+      stroke: #fff;
+      stroke-width: 2px;
+    }
+
+    .node circle {
+      stroke: #000;
+      stroke-width: 1.5px;
+    }
+
+    .node text {
+      font: 10px sans-serif;
+      pointer-events: none;
+    }
+
         
     </style>
     
@@ -147,15 +178,24 @@
             <div class="col-sm-12">
                 <h3>D3.js Examples</h3>
                 <p>
-                        Buying a season pass can get you a much better deal. Which Colorado resorts are tied to a season pass and how do they rank in terms of average
-                        season snowfall? This is a force-directed chart purely for fun so please play with the nodes!
+                        <b>D3 force-directed graphs</b> have many diverse applications with molecular representations being one of the most popular.  Below is a 
+                        molecule that is considered essential for apres-ski, apres-bike and almost apres-anything.
                 </p>
             </div>
             <div class="col-md-6" id="area1"></div>
+            <div id="footer">
+                <div id="content-info">
+                    <div>
+                        <p> C<sub>2</sub>H<sub>6</sub>O <br>
+                            46.07 g/mol
+                        </p>
+                    </div>
+                </div>
+            </div>
         <div class="row"> 
             <div class="col-sm-12">
                 <p>
-                        Looking at major technological stocks across one year shows Amazon and Google dominating.  Amazon shows the most growth, likely owing to the
+                        <b>Looking at major tech stocks</b> across one year shows Amazon and Google dominating.  Amazon shows the most growth, likely owing to the
                         introduction of Amazon Go (grocery shopping) and its acquisition of Whole Foods.
                 </p>
             </div> 
@@ -169,11 +209,84 @@
 </div>
 
  
- 
+ <!-- Molecule --> 
+<script src="d3.v3.min.js"></script>
+
+<script>
+var width = 800,
+    height = 350;
+
+var color = d3.scale.category20();
+
+var radius = d3.scale.sqrt()
+    .range([0, 6]);
+
+var svg = d3.select("#area1").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+    
+svg.append("text")
+    .attr("x", width/2)
+    .attr("y", 25)
+    .style("text-anchor", "middle")
+    .style("fill","darkblue")
+    .text("Ethanol Molecule");
+
+var force = d3.layout.force()
+    .size([width, height])
+    .charge(-400)
+    .linkDistance(function(d) { return radius(d.source.size) + radius(d.target.size) + 20; });
+
+d3.json("molecule.json", function(error, graph) {
+  if (error) throw error;
+
+  force
+      .nodes(graph.nodes)
+      .links(graph.links)
+      .on("tick", tick)
+      .start();
+
+  var link = svg.selectAll(".link")
+      .data(graph.links)
+    .enter().append("g")
+      .attr("class", "link");
+
+  link.append("line")
+      .style("stroke-width", function(d) { return (d.bond * 2 - 1) * 2 + "px"; });
+
+  link.filter(function(d) { return d.bond > 1; }).append("line")
+      .attr("class", "separator");
+
+  var node = svg.selectAll(".node")
+      .data(graph.nodes)
+    .enter().append("g")
+      .attr("class", "node")
+      .call(force.drag);
+
+  node.append("circle")
+      .attr("r", function(d) { return radius(d.size); })
+      .style("fill", function(d) { return color(d.atom); });
+
+  node.append("text")
+      .attr("dy", ".35em")
+      .attr("text-anchor", "middle")
+      .text(function(d) { return d.atom; });
+
+  function tick() {
+    link.selectAll("line")
+        .attr("x1", function(d) { return d.source.x; })
+        .attr("y1", function(d) { return d.source.y; })
+        .attr("x2", function(d) { return d.target.x; })
+        .attr("y2", function(d) { return d.target.y; });
+
+    node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+  }
+});	
+</script>
 
  
- <!-- Streamgraph -->
-<script src="https://d3js.org/d3.v2.js"></script>
+<!-- Streamgraph -->
+<script src="d3.v3.min.js"></script>
 <div class="chart">
 </div>
 
@@ -363,335 +476,6 @@ var graph = d3.csv(csvpath, function(data) {
          vertical.style("left", mousex + "px")});
 });
 }
-</script>
-
- 
-<!-- Force-directed chart -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
-
-<script>
-var w = window.innerWidth/6;
-//var w = document.body.clientWidth - 500;
-var h = window.innerHeight/20;
-var keyc = true, keys = true, keyt = true, keyr = true, keyx = true, keyd = true, keyl = true, keym = true, keyh = true, key1 = true, key2 = true, key3 = true, key0 = true
-var focus_node = null, highlight_node = null;
-var text_center = false;
-var outline = false;
-var min_score = 0;
-var max_score = 1;
-var color = d3.scale.category10();
-var highlight_color = "blue";
-var highlight_trans = 0.1;
-var size = d3.scale.pow().exponent(1)
-    .domain([1,100])
-    .range([4,24]);
-var force = d3.layout.force()
-    .linkDistance(80)
-    .charge(-175)
-    .size([w,h]);
-var default_node_color = "#ccc";
-//var default_node_color = "rgb(3,190,100)";
-var default_link_color = "#888";
-var nominal_base_node_size = 8;
-var nominal_text_size = 10;
-var max_text_size = 24;
-var nominal_stroke = 1.5;
-var max_stroke = 4.5;
-var max_base_node_size = 36;
-var min_zoom = 0.1;
-var max_zoom = 7;
-var svg1 = d3.select("#area1").append("svg");
-svg1.append("text")
-    .attr("x", w*2.1)
-    .attr("y", 15)
-    .style("text-anchor", "middle")
-    .style("fill","darkblue")
-    .text("Force-directed Colorado Ski Resorts by Season Pass");
- 
-var zoom = d3.behavior.zoom().scaleExtent([min_zoom,max_zoom])
-var g = svg1.append("g");
-svg1.style("cursor","move");
-d3.json("co_ski_sort_clusters.json", function(error, graph) {
-    var linkedByIndex = {};
-    graph.links.forEach(function(d) {
-        linkedByIndex[d.source + "," + d.target] = true;
-    });
-    function isConnected(a, b) {
-        return (
-            linkedByIndex[a.index + "," + b.index]
-            || linkedByIndex[b.index + "," + a.index]
-            || a.index == b.index);
-    }
-    function hasConnections(a) {
-        for (var property in linkedByIndex) {
-            s = property.split(",");
-            if ((s[0] == a.index || s[1] == a.index) && linkedByIndex[property]) {
-                return true;
-            }
-        }
-        return false;
-    }
-    force
-        .nodes(graph.nodes)
-        .links(graph.links)
-        .start();
-        
-    var link = g.selectAll(".link")
-        .data(graph.links)
-        .enter().append("line")
-        .attr("class", "link")
-        .style("stroke-width",nominal_stroke)
-        .style("stroke", function(d) {
-            if (isNumber(d.score) && d.score>=0) return color(d.score);
-            else return default_link_color; })
-      
-    // Define nodes: color to correspond with d.Pass  
-    var node = g.selectAll(".node")
-        .data(graph.nodes)
-        .enter().append("g")
-        .attr("class", "node")
-        .style("fill", function(d) { return color(d.Pass); })
-        .call(force.drag)
-        node.on("dblclick.zoom", function(d) { d3.event.stopPropagation();
-    
-        var dcx = (window.innerWidth/2-d.x*zoom.scale());
-        var dcy = (window.innerHeight/2-d.y*zoom.scale());
-        zoom.translate([dcx,dcy]);
-        g.attr("transform", "translate("+ dcx + "," + dcy  + ")scale(" + zoom.scale() + ")");
-        });
-    
-    var tocolor = "fill";
-    var towhite = "stroke";
-    if (outline) {
-        tocolor = "stroke"
-        towhite = "fill"}
-        
-    var circle = node.append("path")
-        .attr("d", d3.svg.symbol()
-            .size(function(d) { return Math.PI*Math.pow(size(d.size)||nominal_base_node_size,2); })
-            .type(function(d) { return d.type; }))
-        .style(tocolor, function(d) {
-            return color(d.Pass); })
-        //.attr("r", function(d) { return size(d.size)||nominal_base_node_size; })
-        .style("stroke-width", nominal_stroke)
-        .style(towhite, "white");
-    var text = g.selectAll(".text")
-        .data(graph.nodes)
-        .enter().append("text")
-        .attr("dy", ".35em")
-        .style("font-size", nominal_text_size + "px")
-    if (text_center)
-        text.text(function(d) { return d.id + ": " + d.snowfall + " in"; })
-            .style("text-anchor", "middle");
-    else
-        text.attr("dx", function(d) {return (size(d.size)||nominal_base_node_size);})
-            .text(function(d) { return '\u2002'+ d.id + ": " + d.snowfall + " in"; });
-          
-     <!-- standard legend creation -->     
-    var legend = svg1.selectAll(".legend")
-        .data(color.domain())
-        .enter().append("g")
-        .attr("class", "legend")
-        .attr("transform", function(d, i) { return "translate(0," + i * 30 + ")"; });          
-          
-    legend.selectAll('rect')
-      .data(graph)
-      .enter()
-
-    legend.append("rect")
-        .attr("x", w - 18)
-        .attr("y", h - 18)
-        .attr("width", 18)
-        .attr("height", 18)
-        .style("fill", color);
-
-    legend.append("text")
-        .attr("x", w - 24)
-        .attr("y", h - 10)
-        .attr("dy", ".35em")
-        .style("text-anchor", "end")
-        .text(function(d) { return d; });
-
-            
-    node.on("mouseover", function(d) {
-        set_highlight(d);
-    })
-        .on("mousedown", function(d) { d3.event.stopPropagation();
-            focus_node = d;
-            set_focus(d)
-            if (highlight_node === null) set_highlight(d)
-        }	).on("mouseout", function(d) {
-            exit_highlight();
-        }	);
-    d3.select(window).on("mouseup",
-        function() {
-            if (focus_node!==null)
-            {
-                focus_node = null;
-                if (highlight_trans<1)
-                {
-                    circle.style("opacity", 1);
-                    text.style("opacity", 1);
-                    link.style("opacity", 1);
-                }
-            }
-            if (highlight_node === null) exit_highlight();
-        });
-    function exit_highlight()
-    {
-        highlight_node = null;
-        if (focus_node===null)
-        {
-            svg1.style("cursor","move");
-            if (highlight_color!="white")
-            {
-                circle.style(towhite, "white");
-                text.style("font-weight", "normal");
-                link.style("stroke", function(o) {return (isNumber(o.score) && o.score>=0)?color(o.score):default_link_color});
-            }
-        }
-    }
-    function set_focus(d)
-    {
-        if (highlight_trans<1)  {
-            circle.style("opacity", function(o) {
-                return isConnected(d, o) ? 1 : highlight_trans;
-            });
-            text.style("opacity", function(o) {
-                return isConnected(d, o) ? 1 : highlight_trans;
-            });
-            link.style("opacity", function(o) {
-                return o.source.index == d.index || o.target.index == d.index ? 1 : highlight_trans;
-            });
-        }
-    }
-    function set_highlight(d)
-    {
-        svg1.style("cursor","pointer");
-        if (focus_node!==null) d = focus_node;
-        highlight_node = d;
-        if (highlight_color!="white")
-        {
-            circle.style(towhite, function(o) {
-                return isConnected(d, o) ? highlight_color : "white";});
-            text.style("font-weight", function(o) {
-                return isConnected(d, o) ? "bold" : "normal";});
-            link.style("stroke", function(o) {
-                return o.source.index == d.index || o.target.index == d.index ? highlight_color : ((isNumber(o.score) && o.score>=0)?color(o.score):default_link_color);
-            });
-        }
-    }
-    zoom.on("zoom", function() {
-        var stroke = nominal_stroke;
-        if (nominal_stroke*zoom.scale()>max_stroke) stroke = max_stroke/zoom.scale();
-        link.style("stroke-width",stroke);
-        circle.style("stroke-width",stroke);
-        var base_radius = nominal_base_node_size;
-        if (nominal_base_node_size*zoom.scale()>max_base_node_size) base_radius = max_base_node_size/zoom.scale();
-        circle.attr("d", d3.svg1.symbol()
-            .size(function(d) { return Math.PI*Math.pow(size(d.size)*base_radius/nominal_base_node_size||base_radius,2); })
-            .type(function(d) { return d.type; }))
-        //circle.attr("r", function(d) { return (size(d.size)*base_radius/nominal_base_node_size||base_radius); })
-        if (!text_center) text.attr("dx", function(d) { return (size(d.size)*base_radius/nominal_base_node_size||base_radius); });
-        var text_size = nominal_text_size;
-        if (nominal_text_size*zoom.scale()>max_text_size) text_size = max_text_size/zoom.scale();
-        text.style("font-size",text_size + "px");
-        g.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
-    });
-    //svg.call(zoom);
-    resize();
-    //window.focus();
-    d3.select(window).on("resize", resize).on("keydown", keydown);
-    force.on("tick", function() {
-        node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
-        text.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
-        link.attr("x1", function(d) { return d.source.x; })
-            .attr("y1", function(d) { return d.source.y; })
-            .attr("x2", function(d) { return d.target.x; })
-            .attr("y2", function(d) { return d.target.y; });
-        node.attr("cx", function(d) { return d.x; })
-            .attr("cy", function(d) { return d.y; });
-    });
-    function resize() {
-        var width = window.innerWidth, height = window.innerHeight;
-        svg1.attr("width", width).attr("height", height);
-        force.size([force.size()[0]+(width-w)/zoom.scale(),force.size()[1]+(height-h)/zoom.scale()]).resume();
-        w = width;
-        h = height;
-    }
-    function keydown() {
-        if (d3.event.keyCode==32) {  force.stop();}
-        else if (d3.event.keyCode>=48 && d3.event.keyCode<=90 && !d3.event.ctrlKey && !d3.event.altKey && !d3.event.metaKey)
-        {
-            switch (String.fromCharCode(d3.event.keyCode)) {
-                case "C": keyc = !keyc; break;
-                case "S": keys = !keys; break;
-                case "T": keyt = !keyt; break;
-                case "R": keyr = !keyr; break;
-                case "X": keyx = !keyx; break;
-                case "D": keyd = !keyd; break;
-                case "L": keyl = !keyl; break;
-                case "M": keym = !keym; break;
-                case "H": keyh = !keyh; break;
-                case "1": key1 = !key1; break;
-                case "2": key2 = !key2; break;
-                case "3": key3 = !key3; break;
-                case "0": key0 = !key0; break;
-            }
-            link.style("display", function(d) {
-                var flag  = vis_by_type(d.source.type)&&vis_by_type(d.target.type)&&vis_by_node_score(d.source.score)&&vis_by_node_score(d.target.score)&&vis_by_link_score(d.score);
-                linkedByIndex[d.source.index + "," + d.target.index] = flag;
-                return flag?"inline":"none";});
-            node.style("display", function(d) {
-                return (key0||hasConnections(d))&&vis_by_type(d.type)&&vis_by_node_score(d.score)?"inline":"none";});
-            text.style("display", function(d) {
-                return (key0||hasConnections(d))&&vis_by_type(d.type)&&vis_by_node_score(d.score)?"inline":"none";});
-            if (highlight_node !== null)
-            {
-                if ((key0||hasConnections(highlight_node))&&vis_by_type(highlight_node.type)&&vis_by_node_score(highlight_node.score)) {
-                    if (focus_node!==null) set_focus(focus_node);
-                    set_highlight(highlight_node);
-                }
-                else {exit_highlight();}
-            }
-        }
-    }
-});
-function vis_by_type(type)
-{
-    switch (type) {
-        case "circle": return keyc;
-        case "square": return keys;
-        case "triangle-up": return keyt;
-        case "diamond": return keyr;
-        case "cross": return keyx;
-        case "triangle-down": return keyd;
-        default: return true;
-    }
-}
-function vis_by_node_score(score)
-{
-    if (isNumber(score))
-    {
-        if (score>=0.666) return keyh;
-        else if (score>=0.333) return keym;
-        else if (score>=0) return keyl;
-    }
-    return true;
-}
-function vis_by_link_score(score)
-{
-    if (isNumber(score))
-    {
-        if (score>=0.666) return key3;
-        else if (score>=0.333) return key2;
-        else if (score>=0) return key1;
-    }
-    return true;
-}
-function isNumber(n) {
-    return !isNaN(parseFloat(n)) && isFinite(n);
-}	
 </script>
 
 
