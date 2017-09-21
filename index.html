@@ -61,7 +61,7 @@
       background: #fff;
     }
     p {
-      font: 12px helvetica;
+      font: 14px helvetica;
     }
     .axis path, .axis line {
       fill: none;
@@ -322,6 +322,7 @@ var format = d3.time.format("%m/%d/%y");
 //var parseDate = d3.time.format("%m/%d/%y").parse;
 var formatDate = d3.time.format("%b %d, '%y");
 var formatDecimalComma = d3.format(",.2f");
+var formatComma = d3.format(",.0f");
 var formatMoney = function(d) { return "$" + formatDecimalComma(d); };
 
 var margin = {top: 20, right: 450, bottom: 70, left: 50};
@@ -353,11 +354,12 @@ var xAxis = d3.svg.axis()
     .ticks(d3.time.months);
 
 var yAxis = d3.svg.axis()
-    .scale(y);
-
-var yAxisr = d3.svg.axis()
     .scale(y)
-    .tickFormat(function(d) { return "$" + commaFormatter(d); });
+    .tickFormat(function(d) { return "$" + formatComma(d); });
+    
+//var yAxisr = d3.svg.axis()
+ //   .scale(y)
+   // .tickFormat(function(d) { return "$" + formatDecimalComma(d); });
 
 var stack = d3.layout.stack()
     .offset("silhouette")
@@ -440,8 +442,6 @@ var graph = d3.csv(csvpath, function(data) {
       pro = d.values[mousedate].value;
       dt = d.values[mousedate].date;
       
-      
-
       d3.select(this)
       .classed("hover", true)
       .attr("stroke", strokecolor)
