@@ -176,8 +176,9 @@
                         <p>
                             <a target="_blank" href="https://datavizhokie.github.io/Twitter-FirstDayofFall/"> Twitter Stream of #FirstDayofFall Tweets </a>
                             <br>
-                            <a target="_blank" href="https://datavizhokie.github.io/fridayfeel//"> Most Common Word Bubble Chart for #FridayFeel Tweets </a>
-                            
+                            <a target="_blank" href="https://datavizhokie.github.io/fridayfeel/"> Most Common Word Bubble Chart for #FridayFeel Tweets </a>
+                            <br>
+                            <a target="_blank" href="https://datavizhokie.github.io/ethanol-molecule/"> Force-Directed Ethanol Molecule</a>   
                         </p>    
                     </div>
                   </div>
@@ -195,83 +196,7 @@
   </div>
 </div>
 
- 
- <!-- Molecule --> 
-<script src="d3.v3.min.js"></script>
 
-<script>
-var width = 800,
-    height = 275;
-
-var color = d3.scale.category20();
-
-var radius = d3.scale.sqrt()
-    .range([0, 6]);
-
-var svg = d3.select("#area1").append("svg")
-    .attr("width", width)
-    .attr("height", height);
-    
-svg.append("text")
-    .attr("x", width/2)
-    .attr("y", 25)
-    .style("text-anchor", "middle")
-    .style("fill","darkblue")
-    .text("Ethanol Molecule");
-
-var force = d3.layout.force()
-    .size([width, height])
-    .charge(-250)
-    .linkDistance(function(d) { return radius(d.source.size) + radius(d.target.size) + 20; });
-
-d3.json("molecule.json", function(error, graph) {
-  if (error) throw error;
-
-  force
-      .nodes(graph.nodes)
-      .links(graph.links)
-      .on("tick", tick)
-      .start();
-
-  var link = svg.selectAll(".link")
-      .data(graph.links)
-    .enter().append("g")
-      .attr("class", "link");
-
-  link.append("line")
-      .style("stroke-width", function(d) { return (d.bond * 2 - 1) * 2 + "px"; });
-
-  link.filter(function(d) { return d.bond > 1; }).append("line")
-      .attr("class", "separator");
-
-  var node = svg.selectAll(".node")
-      .data(graph.nodes)
-    .enter().append("g")
-      .attr("class", "node")
-      .call(force.drag);
-
-  node.append("circle")
-      .attr("r", function(d) { return radius(d.size); })
-      .style("fill", function(d) { return color(d.atom); });
-
-  node.append("text")
-      .attr("dy", ".35em")
-      .attr("text-anchor", "middle")
-      .text(function(d) { return d.atom; });
-
-  function tick() {
-    link.selectAll("line")
-        .attr("x1", function(d) { return d.source.x; })
-        .attr("y1", function(d) { return d.source.y; })
-        .attr("x2", function(d) { return d.target.x; })
-        .attr("y2", function(d) { return d.target.y; });
-
-    node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
-  }
-});	
-</script>
-
- 
 <!-- Streamgraph -->
 <script src="d3.v3.min.js"></script>
 <div class="chart">
