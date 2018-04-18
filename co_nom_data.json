@@ -1,6 +1,6 @@
 [
   {
-    "GEOID10": 8003,
+    "GEOID10": "08003",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 3,
@@ -18,7 +18,7 @@
     "NominationCount": 9
   },
   {
-    "GEOID10": 8005,
+    "GEOID10": "08005",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 5,
@@ -36,7 +36,7 @@
     "NominationCount": 1
   },
   {
-    "GEOID10": 8014,
+    "GEOID10": "08014",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 14,
@@ -54,7 +54,7 @@
     "NominationCount": 15
   },
   {
-    "GEOID10": 8007,
+    "GEOID10": "08007",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 7,
@@ -72,7 +72,7 @@
     "NominationCount": 2
   },
   {
-    "GEOID10": 8011,
+    "GEOID10": "08011",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 11,
@@ -90,7 +90,7 @@
     "NominationCount": 4
   },
   {
-    "GEOID10": 8013,
+    "GEOID10": "08013",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 13,
@@ -108,7 +108,7 @@
     "NominationCount": 4
   },
   {
-    "GEOID10": 8015,
+    "GEOID10": "08015",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 15,
@@ -126,7 +126,7 @@
     "NominationCount": 6
   },
   {
-    "GEOID10": 8019,
+    "GEOID10": "08019",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 19,
@@ -144,7 +144,7 @@
     "NominationCount": 3
   },
   {
-    "GEOID10": 8023,
+    "GEOID10": "08023",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 23,
@@ -162,7 +162,7 @@
     "NominationCount": 2
   },
   {
-    "GEOID10": 8025,
+    "GEOID10": "08025",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 25,
@@ -180,7 +180,7 @@
     "NominationCount": 15
   },
   {
-    "GEOID10": 8027,
+    "GEOID10": "08027",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 27,
@@ -198,7 +198,7 @@
     "NominationCount": 20
   },
   {
-    "GEOID10": 8029,
+    "GEOID10": "08029",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 29,
@@ -216,7 +216,7 @@
     "NominationCount": 3
   },
   {
-    "GEOID10": 8031,
+    "GEOID10": "08031",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 31,
@@ -234,7 +234,7 @@
     "NominationCount": 25
   },
   {
-    "GEOID10": 8033,
+    "GEOID10": "08033",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 33,
@@ -252,7 +252,7 @@
     "NominationCount": 2
   },
   {
-    "GEOID10": 8035,
+    "GEOID10": "08035",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 35,
@@ -270,7 +270,7 @@
     "NominationCount": 15
   },
   {
-    "GEOID10": 8037,
+    "GEOID10": "08037",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 37,
@@ -288,7 +288,7 @@
     "NominationCount": 1
   },
   {
-    "GEOID10": 8039,
+    "GEOID10": "08039",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 39,
@@ -306,7 +306,7 @@
     "NominationCount": 5
   },
   {
-    "GEOID10": 8041,
+    "GEOID10": "08041",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 41,
@@ -324,7 +324,7 @@
     "NominationCount": 1
   },
   {
-    "GEOID10": 8043,
+    "GEOID10": "08043",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 43,
@@ -342,7 +342,7 @@
     "NominationCount": 8
   },
   {
-    "GEOID10": 8045,
+    "GEOID10": "08045",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 45,
@@ -360,7 +360,7 @@
     "NominationCount": 2
   },
   {
-    "GEOID10": 8047,
+    "GEOID10": "08047",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 47,
@@ -378,7 +378,7 @@
     "NominationCount": 5
   },
   {
-    "GEOID10": 8049,
+    "GEOID10": "08049",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 49,
@@ -396,7 +396,7 @@
     "NominationCount": 4
   },
   {
-    "GEOID10": 8051,
+    "GEOID10": "08051",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 51,
@@ -414,7 +414,7 @@
     "NominationCount": 5
   },
   {
-    "GEOID10": 8053,
+    "GEOID10": "08053",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 53,
@@ -432,7 +432,7 @@
     "NominationCount": 4
   },
   {
-    "GEOID10": 8055,
+    "GEOID10": "08055",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 55,
@@ -450,7 +450,7 @@
     "NominationCount": 1
   },
   {
-    "GEOID10": 8057,
+    "GEOID10": "08057",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 57,
@@ -468,7 +468,7 @@
     "NominationCount": 1
   },
   {
-    "GEOID10": 8061,
+    "GEOID10": "08061",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 61,
@@ -486,7 +486,7 @@
     "NominationCount": 3
   },
   {
-    "GEOID10": 8065,
+    "GEOID10": "08065",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 65,
@@ -504,7 +504,7 @@
     "NominationCount": 3
   },
   {
-    "GEOID10": 8071,
+    "GEOID10": "08071",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 71,
@@ -522,7 +522,7 @@
     "NominationCount": 4
   },
   {
-    "GEOID10": 8073,
+    "GEOID10": "08073",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 73,
@@ -540,7 +540,7 @@
     "NominationCount": 1
   },
   {
-    "GEOID10": 8075,
+    "GEOID10": "08075",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 75,
@@ -558,7 +558,7 @@
     "NominationCount": 2
   },
   {
-    "GEOID10": 8077,
+    "GEOID10": "08077",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 77,
@@ -576,7 +576,7 @@
     "NominationCount": 4
   },
   {
-    "GEOID10": 8081,
+    "GEOID10": "08081",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 81,
@@ -594,7 +594,7 @@
     "NominationCount": 2
   },
   {
-    "GEOID10": 8087,
+    "GEOID10": "08087",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 87,
@@ -612,7 +612,7 @@
     "NominationCount": 3
   },
   {
-    "GEOID10": 8091,
+    "GEOID10": "08091",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 91,
@@ -630,7 +630,7 @@
     "NominationCount": 4
   },
   {
-    "GEOID10": 8093,
+    "GEOID10": "08093",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 93,
@@ -648,7 +648,7 @@
     "NominationCount": 3
   },
   {
-    "GEOID10": 8095,
+    "GEOID10": "08095",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 95,
@@ -666,7 +666,7 @@
     "NominationCount": 1
   },
   {
-    "GEOID10": 8097,
+    "GEOID10": "08097",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 97,
@@ -684,7 +684,7 @@
     "NominationCount": 4
   },
   {
-    "GEOID10": 8101,
+    "GEOID10": "08101",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 101,
@@ -702,7 +702,7 @@
     "NominationCount": 3
   },
   {
-    "GEOID10": 8103,
+    "GEOID10": "08103",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 103,
@@ -720,7 +720,7 @@
     "NominationCount": 1
   },
   {
-    "GEOID10": 8105,
+    "GEOID10": "08105",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 105,
@@ -738,7 +738,7 @@
     "NominationCount": 5
   },
   {
-    "GEOID10": 8107,
+    "GEOID10": "08107",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 107,
@@ -756,7 +756,7 @@
     "NominationCount": 5
   },
   {
-    "GEOID10": 8111,
+    "GEOID10": "08111",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 111,
@@ -774,7 +774,7 @@
     "NominationCount": 4
   },
   {
-    "GEOID10": 8113,
+    "GEOID10": "08113",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 113,
@@ -792,7 +792,7 @@
     "NominationCount": 3
   },
   {
-    "GEOID10": 8115,
+    "GEOID10": "08115",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 115,
@@ -810,7 +810,7 @@
     "NominationCount": 5
   },
   {
-    "GEOID10": 8117,
+    "GEOID10": "08117",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 117,
@@ -828,7 +828,7 @@
     "NominationCount": 4
   },
   {
-    "GEOID10": 8119,
+    "GEOID10": "08119",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 119,
@@ -846,7 +846,7 @@
     "NominationCount": 2
   },
   {
-    "GEOID10": 8121,
+    "GEOID10": "08121",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 121,
@@ -864,7 +864,7 @@
     "NominationCount": 4
   },
   {
-    "GEOID10": 8123,
+    "GEOID10": "08123",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 123,
@@ -882,7 +882,7 @@
     "NominationCount": 1
   },
   {
-    "GEOID10": 8125,
+    "GEOID10": "08125",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 125,
@@ -900,7 +900,7 @@
     "NominationCount": 2
   },
   {
-    "GEOID10": 8001,
+    "GEOID10": "08001",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 1,
@@ -918,7 +918,7 @@
     "NominationCount": 1
   },
   {
-    "GEOID10": 8083,
+    "GEOID10": "08083",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 83,
@@ -936,7 +936,7 @@
     "NominationCount": 3
   },
   {
-    "GEOID10": 8009,
+    "GEOID10": "08009",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 9,
@@ -954,7 +954,7 @@
     "NominationCount": 1
   },
   {
-    "GEOID10": 8017,
+    "GEOID10": "08017",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 17,
@@ -972,7 +972,7 @@
     "NominationCount": 1
   },
   {
-    "GEOID10": 8021,
+    "GEOID10": "08021",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 21,
@@ -990,7 +990,7 @@
     "NominationCount": 1
   },
   {
-    "GEOID10": 8059,
+    "GEOID10": "08059",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 59,
@@ -1008,7 +1008,7 @@
     "NominationCount": 4
   },
   {
-    "GEOID10": 8063,
+    "GEOID10": "08063",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 63,
@@ -1026,7 +1026,7 @@
     "NominationCount": 5
   },
   {
-    "GEOID10": 8067,
+    "GEOID10": "08067",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 67,
@@ -1044,7 +1044,7 @@
     "NominationCount": 2
   },
   {
-    "GEOID10": 8069,
+    "GEOID10": "08069",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 69,
@@ -1062,7 +1062,7 @@
     "NominationCount": 4
   },
   {
-    "GEOID10": 8079,
+    "GEOID10": "08079",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 79,
@@ -1080,7 +1080,7 @@
     "NominationCount": 4
   },
   {
-    "GEOID10": 8085,
+    "GEOID10": "08085",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 85,
@@ -1098,7 +1098,7 @@
     "NominationCount": 2
   },
   {
-    "GEOID10": 8089,
+    "GEOID10": "08089",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 89,
@@ -1116,7 +1116,7 @@
     "NominationCount": 3
   },
   {
-    "GEOID10": 8099,
+    "GEOID10": "08099",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 99,
@@ -1134,7 +1134,7 @@
     "NominationCount": 3
   },
   {
-    "GEOID10": 8109,
+    "GEOID10": "08109",
     "SUMLEV": 50,
     "STATE": 8,
     "COUNTY": 109,
